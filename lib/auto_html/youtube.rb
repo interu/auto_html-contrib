@@ -5,9 +5,10 @@ module AutoHtml
   class YouTube
     include TagHelper
 
-    def initialize(width: 420, height: 315)
+    def initialize(width: 420, height: 315, loading: 'eager')
       @width = width
       @height = height
+      @loading = loading
     end
 
     def call(text)
@@ -41,6 +42,7 @@ module AutoHtml
         width: @width,
         height: @height,
         src: src,
+        loading: @loading,
         frameborder: 0,
         allowfullscreen: 'yes'
       }
